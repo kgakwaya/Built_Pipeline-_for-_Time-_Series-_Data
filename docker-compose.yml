@@ -1,0 +1,21 @@
+# Local MySQL + MongoDB for development:  docker compose up -d   (or: podman compose up -d)
+services:
+  mysql:
+    image: docker.io/library/mysql:8.0
+    container_name: power_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD:-rootpass}
+    ports: ["3306:3306"]
+    volumes: ["mysql_data:/var/lib/mysql"]
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p${MYSQL_PASSWORD:-rootpass}"]
+      interval: 5s
+      retries: 20
+  mongo:
+    image: docker.io/library/mongo:7
+    container_name: power_mongo
+    ports: ["27017:27017"]
+    volumes: ["mongo_data:/data/db"]
+volumes:
+  mysql_data:
+  mongo_data:
