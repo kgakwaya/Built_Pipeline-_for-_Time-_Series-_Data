@@ -1,0 +1,8 @@
+,pearson_same_hour,spearman_same_hour,pearson_prev_hour_vs_target
+Global_reactive_power,0.3123,0.2163,0.2374
+Voltage,-0.3794,-0.3417,-0.2883
+Global_intensity,0.9994,0.9981,0.7137
+Sub_metering_1,0.4965,0.4418,0.2968
+Sub_metering_2,0.4403,0.1876,0.251
+Sub_metering_3,0.6955,0.6936,0.4545
+Other_energy_Wh,0.7548,0.7749,0.6322

@@ -1,0 +1,36 @@
+question,metric,value
+Q1,ols_slope_kW_per_year,-0.01489
+Q1,ols_p_value,0.70786
+Q1,spearman_rho,-0.04708
+Q1,seasonally_adjusted_slope_kW_per_year,-0.00542
+Q2,eta2_hour,0.23497
+Q2,eta2_dow,0.01134
+Q2,eta2_daytype_x_hour,0.27256
+Q2,eta2_dow_x_hour,0.28533
+Q3,pearson_Global_reactive_power,0.31229
+Q3,pearson_Voltage,-0.37944
+Q3,pearson_Global_intensity,0.99942
+Q3,pearson_Sub_metering_1,0.49652
+Q3,pearson_Sub_metering_2,0.44029
+Q3,pearson_Sub_metering_3,0.69552
+Q3,pearson_Other_energy_Wh,0.75485
+Q4,acf_lag_1,0.71968
+Q4,acf_lag_2,0.47326
+Q4,acf_lag_3,0.29375
+Q4,acf_lag_6,0.01953
+Q4,acf_lag_12,0.24241
+Q4,acf_lag_24,0.4351
+Q4,acf_lag_48,0.40191
+Q4,acf_lag_168,0.47024
+Q5,corr_shifted_MA3,0.56902
+Q5,corr_shifted_MA6,0.39168
+Q5,corr_shifted_MA24,0.35891
+Q5,corr_shifted_MA168,0.32855
+Q6,MAE_Persistence (lag 1),0.45302
+Q6,MAE_Shifted MA 3 h,0.57411
+Q6,MAE_Historical hour-of-week mean,0.58059
+Q6,MAE_Seasonal naive 168 h,0.62725
+Q6,MAE_Seasonal naive 24 h,0.65601
+Q6,MAE_Shifted MA 24 h,0.67461
+Q6,MAE_Shifted MA 168 h,0.68315
+Q6,MAE_Shifted MA 6 h,0.69101

@@ -1,0 +1,10 @@
+Issue,Evidence,Chosen action,Justification,Potential limitation
+Text file with '?' tokens,"25,979 '?'/empty fields per column; 0 other bad tokens",Read '?' and empty fields as NaN; columns -> float64,'?' is the documented missing marker (the last column is simply left empty); zero would be a false measurement,Cause of missingness is undocumented
+Timestamps,0 invalid; 0 absent from 1-min grid; sorted in file: True,Parse day-first; sort; assert strictly increasing,Lags / rolling windows / splits require a correct ordered axis,Local time; any DST effects are not documented
+Duplicates,"0 duplicate timestamps, 0 duplicate rows","Policy: drop identical rows, average conflicting timestamps (none occurred)",Avoid double counting without discarding conflicting info silently,Policy untested on real duplicates (unit-tested on synthetic data)
+Missing minutes,"25,979 rows (1.25%), 71 runs, longest 7,226 min",Keep NaN rows; no minute-level imputation,Preserves the regular grid; long outages cannot be reconstructed credibly,Missing periods are not representative of usage
+Incomplete hours,438 hours with < 45 observed minutes; 66 valid hours with 45-59 min,Hourly mean of observed minutes; hour valid only if >= 45 min,Isolated missing minutes lose almost no information; mostly-empty hours would be unreliable,Threshold of 45 is a judgement call
+Short invalid-hour gaps,30 target hours bridgeable (<= 3 h),"Causal forward fill (<= 3 h) for INPUTS only, flagged",Uses past only (no leakage); recovery experiment shows modest error,Flat fill underestimates variability; flagged values are few
+Long invalid-hour gaps,longest 121 h; 408 hours remain NaN,Not imputed; rows with missing target or inputs excluded from supervised data,Interpolating days of data would invent a consumption pattern,Fewer rows; lags after a gap are unavailable
+Evaluated targets,validation/test targets must reflect reality,Targets are never imputed,Prevents optimistic evaluation / leakage,Evaluation covers observed hours only
+Extreme values,4.63% of minutes above the Tukey fence,Retained,"Plausible appliance peaks (within physical limits), not errors",Large errors dominate RMSE

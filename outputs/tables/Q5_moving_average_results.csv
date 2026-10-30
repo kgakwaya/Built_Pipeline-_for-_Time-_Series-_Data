@@ -1,0 +1,5 @@
+window_h,sd_ratio_MA_to_y,delay_h_best_match,theory_delay_(w-1)/2,corr_unshifted(LEAKY),corr_shifted_MA(t-1)_vs_y(t),MAE_as_forecast
+3,0.8707,1,1.0,0.8394,0.569,0.5709
+6,0.736,3,2.5,0.6138,0.3917,0.6876
+24,0.4745,12,11.5,0.4087,0.3589,0.6761
+168,0.3621,84,83.5,0.3375,0.3286,0.689

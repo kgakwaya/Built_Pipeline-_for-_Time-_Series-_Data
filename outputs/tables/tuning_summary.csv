@@ -1,0 +1,3 @@
+model,search,cv,n_candidates,n_fits,best_cv_score,tuning_seconds,best_params
+Ridge,grid,TimeSeriesSplit(n_splits=4),13,52,-0.4026684502783531,0.5,{'model__alpha': np.float64(316.2277660168379)}
+Random Forest,random,TimeSeriesSplit(n_splits=4),8,32,-0.3635139989921863,100.83,"{'model__n_estimators': 50, 'model__min_samples_leaf': 15, 'model__max_features': 0.5, 'model__max_depth': 12}"
