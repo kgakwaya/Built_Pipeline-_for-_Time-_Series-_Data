@@ -1,0 +1,11 @@
+,value
+Hourly intervals,34589
+Start,2006-12-16 17:00:00
+End,2010-11-26 21:00:00
+Valid hours (>= 45 observed minutes),34151
+Invalid hours (set to NaN),438
+  of which with 0 observed minutes,421
+  of which partially observed (1-44 min),17
+Valid hours with 45-59 observed minutes,66
+Runs of consecutive invalid hours,16
+Longest invalid run (hours),121

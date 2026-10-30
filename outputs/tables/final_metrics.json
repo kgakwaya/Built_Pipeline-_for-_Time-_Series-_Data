@@ -1,0 +1,22 @@
+{
+  "selected_experiment": "E4",
+  "selection_criterion": "lowest validation MAE among trained models",
+  "validation": {
+    "MAE": 0.3502012637378169,
+    "RMSE": 0.5163901855598914,
+    "R2": 0.6644068937993775,
+    "MAPE_pct": 36.32221348524974
+  },
+  "test": {
+    "MAE": 0.30455558279944694,
+    "RMSE": 0.44743354213076864,
+    "R2": 0.600390240579987,
+    "MAPE_pct": 39.19496551155733
+  },
+  "test_persistence_baseline": {
+    "MAE": 0.38553550192527236,
+    "RMSE": 0.5838668248149922,
+    "R2": 0.31953372022552307,
+    "MAPE_pct": 46.20829341251284
+  }
+}

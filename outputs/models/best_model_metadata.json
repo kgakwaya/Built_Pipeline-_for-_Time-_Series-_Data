@@ -1,0 +1,88 @@
+{
+  "target": "Global_active_power",
+  "target_unit": "kW (hourly mean of minute-averaged active power; unit from public dataset documentation)",
+  "frequency": "hourly",
+  "horizon_hours": 1,
+  "selected_experiment": "E4",
+  "model": "Random Forest (tuned)",
+  "hyperparameters": "n_estimators=50, min_samples_leaf=15, max_features=0.5, max_depth=12",
+  "features": [
+    "gap_lag1",
+    "gap_lag2",
+    "gap_lag3",
+    "gap_lag6",
+    "gap_lag12",
+    "gap_lag24",
+    "gap_lag48",
+    "gap_lag168",
+    "gap_roll_mean_3h",
+    "gap_roll_std_3h",
+    "gap_roll_mean_6h",
+    "gap_roll_std_6h",
+    "gap_roll_mean_24h",
+    "gap_roll_std_24h",
+    "gap_roll_mean_168h",
+    "gap_roll_std_168h",
+    "Global_reactive_power_lag1",
+    "Voltage_lag1",
+    "Global_intensity_lag1",
+    "Sub_metering_1_lag1",
+    "Sub_metering_2_lag1",
+    "Sub_metering_3_lag1",
+    "Other_energy_Wh_lag1",
+    "hour",
+    "day_of_week",
+    "is_weekend",
+    "month",
+    "hour_sin",
+    "hour_cos",
+    "dow_sin",
+    "dow_cos"
+  ],
+  "training_period": [
+    "2006-12-23 18:00:00",
+    "2009-09-02 11:00:00"
+  ],
+  "validation_period": [
+    "2009-09-02 12:00:00",
+    "2010-04-13 02:00:00"
+  ],
+  "test_period": [
+    "2010-04-13 03:00:00",
+    "2010-11-26 20:00:00"
+  ],
+  "metrics": {
+    "selected_experiment": "E4",
+    "selection_criterion": "lowest validation MAE among trained models",
+    "validation": {
+      "MAE": 0.3502012637378169,
+      "RMSE": 0.5163901855598914,
+      "R2": 0.6644068937993775,
+      "MAPE_pct": 36.32221348524974
+    },
+    "test": {
+      "MAE": 0.30455558279944694,
+      "RMSE": 0.44743354213076864,
+      "R2": 0.600390240579987,
+      "MAPE_pct": 39.19496551155733
+    },
+    "test_persistence_baseline": {
+      "MAE": 0.38553550192527236,
+      "RMSE": 0.5838668248149922,
+      "R2": 0.31953372022552307,
+      "MAPE_pct": 46.20829341251284
+    }
+  },
+  "preprocessing": {
+    "min_observed_minutes_per_hour": 45,
+    "causal_fill_limit_hours": 3
+  },
+  "seed": 42,
+  "versions": {
+    "python": "3.12.3",
+    "pandas": "3.0.2",
+    "numpy": "2.4.4",
+    "scikit-learn": "1.8.0",
+    "joblib": "1.5.3"
+  }
+}

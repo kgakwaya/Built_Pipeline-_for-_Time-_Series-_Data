@@ -1,0 +1,17 @@
+,value
+Rows (raw file),2075259
+Rows after duplicate handling (cleaned),2075259
+Columns (numeric measurements),7
+Start,2006-12-16 17:24:00
+End,2010-11-26 21:02:00
+Total span (days),1441
+Calendar months touched,48
+Calendar years touched,5
+Unique timestamps,2075259
+Nominal sampling frequency,0 days 00:01:00
+Timestamps missing from the 1-min grid,0
+Rows with '?' (all 7 measurements missing),25979
+Rows with valid measurements,2049280
+Duplicate timestamps,0
+Duplicate full rows,0
+Missing cells (total),181853

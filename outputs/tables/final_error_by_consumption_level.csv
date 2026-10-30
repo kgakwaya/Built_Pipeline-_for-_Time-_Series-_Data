@@ -1,0 +1,5 @@
+Global_active_power_t_plus_1h,actual_mean,MAE,bias(actual-pred),persistence_MAE
+Q1 lowest,0.3101,0.1481,-0.1466,0.146
+Q2,0.4889,0.2625,-0.2247,0.3001
+Q3,1.0739,0.3166,-0.0326,0.4702
+Q4 highest,1.969,0.491,0.374,0.6259
