@@ -1,0 +1,32 @@
+feature,definition,calculation,forecasting_purpose
+gap_lag1,Global_active_power 1 hour(s) before the forecast origin (lag1 = last known hour),shift(1) of hourly mean power,autoregressive memory; k=24/168 capture daily/weekly cycle
+gap_lag2,Global_active_power 2 hour(s) before the forecast origin (lag1 = last known hour),shift(2) of hourly mean power,autoregressive memory; k=24/168 capture daily/weekly cycle
+gap_lag3,Global_active_power 3 hour(s) before the forecast origin (lag1 = last known hour),shift(3) of hourly mean power,autoregressive memory; k=24/168 capture daily/weekly cycle
+gap_lag6,Global_active_power 6 hour(s) before the forecast origin (lag1 = last known hour),shift(6) of hourly mean power,autoregressive memory; k=24/168 capture daily/weekly cycle
+gap_lag12,Global_active_power 12 hour(s) before the forecast origin (lag1 = last known hour),shift(12) of hourly mean power,autoregressive memory; k=24/168 capture daily/weekly cycle
+gap_lag24,Global_active_power 24 hour(s) before the forecast origin (lag1 = last known hour),shift(24) of hourly mean power,autoregressive memory; k=24/168 capture daily/weekly cycle
+gap_lag48,Global_active_power 48 hour(s) before the forecast origin (lag1 = last known hour),shift(48) of hourly mean power,autoregressive memory; k=24/168 capture daily/weekly cycle
+gap_lag168,Global_active_power 168 hour(s) before the forecast origin (lag1 = last known hour),shift(168) of hourly mean power,autoregressive memory; k=24/168 capture daily/weekly cycle
+gap_roll_mean_3h,Mean of the last 3h hourly target values up to the origin,shift(1).rolling(3).mean(),smoothed recent level; reduces hourly noise
+gap_roll_std_3h,Std. deviation of the last 3h hourly target values up to the origin,shift(1).rolling(3).std(),recent volatility
+gap_roll_mean_6h,Mean of the last 6h hourly target values up to the origin,shift(1).rolling(6).mean(),smoothed recent level; reduces hourly noise
+gap_roll_std_6h,Std. deviation of the last 6h hourly target values up to the origin,shift(1).rolling(6).std(),recent volatility
+gap_roll_mean_24h,Mean of the last 24h hourly target values up to the origin,shift(1).rolling(24).mean(),smoothed recent level; reduces hourly noise
+gap_roll_std_24h,Std. deviation of the last 24h hourly target values up to the origin,shift(1).rolling(24).std(),recent volatility
+gap_roll_mean_168h,Mean of the last 168h hourly target values up to the origin,shift(1).rolling(168).mean(),smoothed recent level; reduces hourly noise
+gap_roll_std_168h,Std. deviation of the last 168h hourly target values up to the origin,shift(1).rolling(168).std(),recent volatility
+Global_reactive_power_lag1,Last known hourly value of Global_reactive_power,shift(1),co-measured appliance / electrical state
+Voltage_lag1,Last known hourly value of Voltage,shift(1),co-measured appliance / electrical state
+Global_intensity_lag1,Last known hourly value of Global_intensity,shift(1),co-measured appliance / electrical state
+Sub_metering_1_lag1,Last known hourly value of Sub_metering_1,shift(1),co-measured appliance / electrical state
+Sub_metering_2_lag1,Last known hourly value of Sub_metering_2,shift(1),co-measured appliance / electrical state
+Sub_metering_3_lag1,Last known hourly value of Sub_metering_3,shift(1),co-measured appliance / electrical state
+Other_energy_Wh_lag1,Last known hourly value of Other_energy_Wh,shift(1),co-measured appliance / electrical state
+hour,hour of day (0-23) of the predicted hour,from target timestamp T (.hour),calendar seasonality (known in advance)
+day_of_week,Monday=0 ... Sunday=6 of the predicted hour,from target timestamp T (.dayofweek),calendar seasonality (known in advance)
+is_weekend,1 if predicted hour is Saturday/Sunday,from target timestamp T (.dayofweek),calendar seasonality (known in advance)
+month,calendar month of the predicted hour,from target timestamp T (.month),calendar seasonality (known in advance)
+hour_sin,Cyclical sin/cos encoding of hour or weekday,sin/cos(2*pi*x/period),lets linear models see cyclic continuity
+hour_cos,Cyclical sin/cos encoding of hour or weekday,sin/cos(2*pi*x/period),lets linear models see cyclic continuity
+dow_sin,Cyclical sin/cos encoding of hour or weekday,sin/cos(2*pi*x/period),lets linear models see cyclic continuity
+dow_cos,Cyclical sin/cos encoding of hour or weekday,sin/cos(2*pi*x/period),lets linear models see cyclic continuity

@@ -1,0 +1,9 @@
+experiment,model,features,hyperparameters,Val_MAE,Val_RMSE,Val_R2,Test_MAE,Test_RMSE,Test_R2,Test_MAPE_pct,Train_MAE,runtime_s,val_rank_by_MAE
+E0a,Persistence (lag 1),gap_lag1,none,0.46348,0.69149,0.39824,0.38554,0.58387,0.31953,46.20829,0.44766,0.0,6
+E0b,Seasonal naive 24 h,gap_lag24,none,0.66392,0.96023,-0.1604,0.5089,0.75523,-0.13852,66.62502,0.66554,0.0,8
+E0c,Seasonal naive 168 h,gap_lag168,none,0.59094,0.8723,0.04239,0.5499,0.79482,-0.26101,76.53087,0.65298,0.0,7
+E1,Ridge (default),all 31 features,alpha=1.0,0.40751,0.57132,0.58922,0.35131,0.49086,0.51906,47.74752,0.40915,0.02,3
+E2,Random Forest (default),all 31 features,"n_estimators=100, max_depth=None, min_samples_leaf=1, max_features=1.0",0.35302,0.51685,0.6638,0.30626,0.44866,0.59819,39.70351,0.12974,37.79,2
+E3,Ridge (tuned),all 31 features,alpha=316.2,0.40759,0.57161,0.58879,0.35107,0.49059,0.51958,47.74246,0.40913,0.51,4
+E4,Random Forest (tuned),all 31 features,"n_estimators=50, min_samples_leaf=15, max_features=0.5, max_depth=12",0.3502,0.51639,0.66441,0.30456,0.44743,0.60039,39.19497,0.29963,100.94,1
+E5,"Ridge (tuned alpha), target-only features",16 gap_* lag/rolling features,alpha=316.2,0.41279,0.58505,0.56923,0.35034,0.49596,0.50902,47.91898,0.41397,0.01,5

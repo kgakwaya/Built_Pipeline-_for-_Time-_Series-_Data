@@ -1,0 +1,9 @@
+,MAE,RMSE,R2,MAE_vs_hist_mean_%
+Persistence (lag 1),0.453,0.7002,0.4283,-21.9725
+Shifted MA 3 h,0.5741,0.8201,0.2157,-1.1162
+Historical hour-of-week mean,0.5806,0.7881,0.2757,0.0
+Seasonal naive 168 h,0.6272,0.9406,-0.0316,8.0358
+Seasonal naive 24 h,0.656,0.9763,-0.1115,12.9896
+Shifted MA 24 h,0.6746,0.8739,0.1095,16.1928
+Shifted MA 168 h,0.6831,0.8769,0.1033,17.6638
+Shifted MA 6 h,0.691,0.9181,0.0171,19.0177
