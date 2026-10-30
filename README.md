@@ -13,29 +13,20 @@ Formative 1 (Machine Learning Pipeline, Group 2). The group forecasts a househol
 ## Repository layout
 
 ```
-notebooks/        Task1_Time_Series_Preprocessing_EDA_Forecasting.ipynb       <- Task 1 (executed notebook)
-src/              data_loading.py  preprocessing.py  feature_engineering.py  modeling.py   (used by the notebook and Task 4)
-outputs/
-  figures/        17 EDA and evaluation figures
-  tables/         statistics, analytical-question results, experiment_comparison.csv, final_metrics.json
-  reports/        results_summary.md
-  models/         best_model.joblib  best_model_metadata.json                (E4, tuned Random Forest)
-data/
-  raw/            household_power_consumption.txt goes here (not committed)
-  processed/      hourly_observed.csv  hourly_inputs_causal_filled.csv          (produced by Task 1)
-database/                                                                       <- Task 2
-  sql/            01_schema.sql  02_seed_reference_data.sql  03_queries.sql
-  erd/            erd.mmd (source)  erd.png  erd.svg
-  mongo/          queries.py (9 queries)  sample_documents.json
-  scripts/        load_sql.py  load_mongo.py  run_sql_queries.py  run_mongo_queries.py  export_sample_documents.py
-  results/        sql_query_results.md  mongo_query_results.md      <- queries + their results (for the report)
-  config.py       connection settings (env vars / .env)
-docs/             database_design.md    (design rationale, table dictionary, results summary)
-api/              main.py  sql_routes.py  mongo_routes.py  schemas.py  db.py          <- Task 3 (FastAPI)
-prediction/       predict.py                                                       <- Task 4
-tests/            test_pipeline.py (Task 1)  test_api.py (Tasks 3-4)
-Task1README.md    full Task 1 documentation (methodology, results, rubric matrix)
-docker-compose.yml  requirements.txt  .env.example
+.
+├── notebooks/        Task 1 notebook
+├── src/              Task 1 code modules
+├── outputs/          figures/  tables/  reports/  models/
+├── data/             raw/  processed/
+├── database/         sql/  erd/  mongo/  scripts/  results/
+├── docs/
+├── api/              Task 3
+├── prediction/       Task 4
+├── tests/
+├── Task1README.md
+├── docker-compose.yml
+├── requirements.txt
+└── .env.example
 ```
 
 ## Setup
