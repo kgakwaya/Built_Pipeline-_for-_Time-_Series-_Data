@@ -1,0 +1,174 @@
+{
+  "households": {
+    "_id": "hh_001",
+    "name": "Household 1",
+    "description": "Single household whose power was metered every minute (Dec 2006 - Nov 2010)",
+    "data_source": "UCI Individual household electric power consumption, hourly aggregate from Task 1",
+    "circuits": [
+      {
+        "code": "sub_metering_1",
+        "field": "kitchen",
+        "name": "Kitchen",
+        "unit": "Wh"
+      },
+      {
+        "code": "sub_metering_2",
+        "field": "laundry_room",
+        "name": "Laundry room",
+        "unit": "Wh"
+      },
+      {
+        "code": "sub_metering_3",
+        "field": "water_heater_ac",
+        "name": "Water heater & A/C",
+        "unit": "Wh"
+      },
+      {
+        "code": "other",
+        "field": "other",
+        "name": "Other (not sub-metered)",
+        "unit": "Wh",
+        "derived": true
+      }
+    ]
+  },
+  "hourly_readings (valid hour)": {
+    "_id": {
+      "$oid": "6ae0bf9ec3b3d01d3ef1cf09"
+    },
+    "household_id": "hh_001",
+    "timestamp": {
+      "$date": "2006-12-16T18:00:00Z"
+    },
+    "measurements": {
+      "global_active_power_kw": 3.6322,
+      "global_reactive_power_kvar": 0.0800333333333333,
+      "voltage_v": 234.58016666666663,
+      "global_intensity_a": 15.6
+    },
+    "sub_metering_wh": {
+      "kitchen": 0.0,
+      "laundry_room": 403.0,
+      "water_heater_ac": 1012.0,
+      "other": 2217.2
+    },
+    "quality": {
+      "n_obs_minutes": 60,
+      "is_valid_hour": true
+    },
+    "calendar": {
+      "year": 2006,
+      "month": 12,
+      "day": 16,
+      "hour": 18,
+      "weekday": 5,
+      "is_weekend": true
+    }
+  },
+  "hourly_readings (invalid hour: values are null, quality flags explain why)": {
+    "_id": {
+      "$oid": "6ae0bf9ec3b3d01d3ef1cf08"
+    },
+    "household_id": "hh_001",
+    "timestamp": {
+      "$date": "2006-12-16T17:00:00Z"
+    },
+    "measurements": {
+      "global_active_power_kw": null,
+      "global_reactive_power_kvar": null,
+      "voltage_v": null,
+      "global_intensity_a": null
+    },
+    "sub_metering_wh": {
+      "kitchen": null,
+      "laundry_room": null,
+      "water_heater_ac": null,
+      "other": null
+    },
+    "quality": {
+      "n_obs_minutes": 36,
+      "is_valid_hour": false
+    },
+    "calendar": {
+      "year": 2006,
+      "month": 12,
+      "day": 16,
+      "hour": 17,
+      "weekday": 5,
+      "is_weekend": true
+    }
+  },
+  "daily_summaries": {
+    "_id": {
+      "$oid": "6ae0bf9fc3b3d01d3ef25626"
+    },
+    "household_id": "hh_001",
+    "date": {
+      "$date": "2006-12-17T00:00:00Z"
+    },
+    "valid_hours": 24,
+    "energy_kwh": 56.5077,
+    "mean_kw": 2.3545,
+    "max_kw": 3.6971,
+    "peak_hour": 18,
+    "min_kw": 0.4377,
+    "sub_metering_kwh": {
+      "kitchen": 2.033,
+      "laundry_room": 4.187,
+      "water_heater_ac": 13.341,
+      "other": 36.9467
+    }
+  },
+  "models": {
+    "_id": {
+      "$oid": "6ae0bf9fc3b3d01d3ef25bbc"
+    },
+    "experiment_id": "E4",
+    "model_name": "Random Forest (tuned)",
+    "version": "1.0",
+    "target": "Global_active_power",
+    "horizon_hours": 1,
+    "hyperparameters": {
+      "n_estimators": 50,
+      "min_samples_leaf": 15,
+      "max_features": 0.5,
+      "max_depth": 12
+    },
+    "metrics": {
+      "validation": {
+        "mae": 0.3502
+      },
+      "test": {
+        "mae": 0.3046,
+        "rmse": 0.4474,
+        "r2": 0.6004
+      }
+    },
+    "preprocessing": {
+      "min_observed_minutes_per_hour": 45,
+      "causal_fill_limit_hours": 3
+    },
+    "split": "chronological 70/15/15",
+    "source": "Task 1 notebook"
+  },
+  "forecasts (illustrative document: values invented, shows the shape the prediction script writes)": {
+    "household_id": "hh_001",
+    "model": {
+      "experiment_id": "E4",
+      "name": "Random Forest (tuned)",
+      "version": "1.0"
+    },
+    "made_at": {
+      "$date": "2010-11-26T20:00:00Z"
+    },
+    "target_timestamp": {
+      "$date": "2010-11-26T21:00:00Z"
+    },
+    "horizon_hours": 1,
+    "predicted_kw": 1.2873,
+    "actual_kw": null,
+    "created_at": {
+      "$date": "2026-10-29T09:30:00Z"
+    }
+  }
+}
