@@ -10,6 +10,11 @@ python-dotenv>=1.0
 numpy>=2.0
 scikit-learn==1.8.0
 joblib>=1.4
+# Task 1 notebook (EDA figures, statistics, running the notebook)
+scipy>=1.11
+matplotlib>=3.8
+seaborn>=0.13
+jupyter>=1.0
 # Task 3 API and Task 4 prediction script
 fastapi>=0.115
 uvicorn[standard]>=0.30

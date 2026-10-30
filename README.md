@@ -5,26 +5,36 @@ Formative 1 (Machine Learning Pipeline, Group 2). The group forecasts a househol
 
 | Task | What | Where | Owner |
 |---|---|---|---|
-| 1 | EDA, preprocessing, lag / moving-average features, model + experiment table | `notebooks/`, `src/` | teammates |
-| **2** | **Relational (MySQL) and MongoDB design, ERD, sample documents, queries + results** | `database/`, `docs/database_design.md` | Honette |
+| 1 | EDA, preprocessing, lag / moving-average features, model + experiment table | `notebooks/`, `src/`, `outputs/` | Mildred |
+| 2 | Relational (MySQL) and MongoDB design, ERD, sample documents, queries + results | `database/`, `docs/database_design.md` | Honette |
 | 3 | CRUD + latest-record + date-range endpoints for both databases (FastAPI) | `api/` | Ketia |
 | 4 | Prediction script: fetch from API → preprocess → load model → predict | `prediction/` | Ketia |
 
 ## Repository layout
 
 ```
-database/
+notebooks/        Task1_Time_Series_Preprocessing_EDA_Forecasting.ipynb       <- Task 1 (executed notebook)
+src/              data_loading.py  preprocessing.py  feature_engineering.py  modeling.py   (used by the notebook and Task 4)
+outputs/
+  figures/        17 EDA and evaluation figures
+  tables/         statistics, analytical-question results, experiment_comparison.csv, final_metrics.json
+  reports/        results_summary.md
+  models/         best_model.joblib  best_model_metadata.json                (E4, tuned Random Forest)
+data/
+  raw/            household_power_consumption.txt goes here (not committed)
+  processed/      hourly_observed.csv  hourly_inputs_causal_filled.csv          (produced by Task 1)
+database/                                                                       <- Task 2
   sql/            01_schema.sql  02_seed_reference_data.sql  03_queries.sql
   erd/            erd.mmd (source)  erd.png  erd.svg
-  mongo/          queries.py (8 queries)  sample_documents.json
+  mongo/          queries.py (9 queries)  sample_documents.json
   scripts/        load_sql.py  load_mongo.py  run_sql_queries.py  run_mongo_queries.py  export_sample_documents.py
   results/        sql_query_results.md  mongo_query_results.md      <- queries + their results (for the report)
   config.py       connection settings (env vars / .env)
-data/processed/   hourly_observed.csv   (hourly data produced by Task 1)
 docs/             database_design.md    (design rationale, table dictionary, results summary)
 api/              main.py  sql_routes.py  mongo_routes.py  schemas.py  db.py          <- Task 3 (FastAPI)
 prediction/       predict.py                                                       <- Task 4
 tests/            test_pipeline.py (Task 1)  test_api.py (Tasks 3-4)
+Task1README.md    full Task 1 documentation (methodology, results, rubric matrix)
 docker-compose.yml  requirements.txt  .env.example
 ```
 
@@ -37,6 +47,20 @@ pip install -r requirements.txt
 cp .env.example .env                                     # edit passwords if you use your own servers
 docker compose up -d                                     # MySQL 8 + MongoDB 7; or `podman compose up -d` (skip if you already run them)
 ```
+
+## Task 1 - Preprocessing, EDA and forecasting (`notebooks/`, `src/`)
+
+Full documentation: [`Task1README.md`](Task1README.md).
+
+```bash
+# put household_power_consumption.txt (or its zip) in data/raw/, then:
+jupyter nbconvert --to notebook --execute --inplace notebooks/Task1_Time_Series_Preprocessing_EDA_Forecasting.ipynb
+```
+* Data: 2,075,259 minute rows (16 Dec 2006 - 26 Nov 2010) aggregated to 34,589 hours; an hour is valid with >= 45 observed minutes.
+* Six analytical questions with figures, including lag (ACF/PACF) and moving-average analyses.
+* Features: 31 leak-free lags, rolling statistics and calendar features; chronological 70/15/15 split.
+* Selected model (validation MAE): **E4, tuned Random Forest** - test MAE 0.305 kW, RMSE 0.447 kW, R² 0.600
+  (persistence baseline: MAE 0.386 kW). Experiment table: `outputs/tables/experiment_comparison.csv`.
 
 ## Task 2 - Databases (`database/`)
 
